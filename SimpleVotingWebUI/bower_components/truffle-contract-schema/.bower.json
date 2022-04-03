@@ -1,0 +1,36 @@
+{
+  "name": "truffle-contract-schema",
+  "description": "JSON schema for contract artifacts",
+  "main": "index.js",
+  "keywords": [
+    "ethereum",
+    "json",
+    "schema",
+    "contract",
+    "artifacts"
+  ],
+  "authors": [
+    "Tim Coulter <tim.coulter@consensys.net>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/trufflesuite/truffle-schema#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "6926f1b549",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6926f1b549ea41e2fafae56a8c428655108e4a53"
+  },
+  "_source": "https://github.com/konsmosc/truffle-contract-schema.git",
+  "_target": "*",
+  "_originalSource": "truffle-contract-schema"
+}

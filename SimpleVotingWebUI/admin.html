@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="bower_components/web3/dist/web3.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/truffle-contract/dist/truffle-contract.js"></script>		
+	<script src="./simplevoting.js"></script>
+    <script>
+    function unlock(){
+        alert("Account Successfully Unlocked!")
+    }
+    </script>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+ <link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	crossorigin="anonymous">
+ 
+ <style>
+ .navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color:white;
+}
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+body {
+    margin:0;
+background-position:center;
+background-image: url('glen3.jpg');
+background-size:cover;
+color:black;
+align:left;}
+
+.base{
+    margin-top: 20px;
+    margin-left:40px;
+    cellpadding:10;
+}
+.base1{
+    margin-top: 80px;
+    margin-left:40px;
+    cellpadding:10;
+}
+.base2{
+    margin-top: 80px;
+    margin-left:40px;
+    cellpadding:10;
+}
+.base3{
+    margin-top: 80px;
+    margin-left:40px;
+    cellpadding:10;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+  margin-left:20px;
+}
+  
+.column {
+  float: left;
+  width: 40%;
+  padding: 3px;
+  margin-left:20px;
+}
+
+.row1 {
+    margin-top:5px;
+  margin-left:-5px;
+  margin-right:-5px;
+  margin-left:20px;
+}
+  
+.column1 {
+    margin-top:5px;
+  float: left;
+  width: 40%;
+  padding: 3px;
+  margin-left:20px;
+}
+
+.row2 {
+    margin-top:5px;
+  margin-left:-5px;
+  margin-right:-5px;
+  margin-left:20px;
+}
+  
+.column2 {
+    margin-top:5px;
+  float: left;
+  width: 30%;
+  padding: 3px;
+  margin-left:20px;
+}
+
+button{
+    text-align:left;
+}
+.base input[type="text"],input[type="password"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+
+.row input[type="text"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+
+.base1 input[type="text"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+
+.base2 input[type="text"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+ </style>
+<script>
+
+</script>
+</head>
+<body>
+<div class="navbar">
+	<h2>Voting-Admin Panel</h2>
+</div>
+
+<table border="0" cellpadding="0" id='currentStatus' class="base1"> 
+				<tr>
+					<td><h2><b>Current status:</b></h2></td>
+					<td id='currentWorkflowStatusMessage'></td>
+					<td></td>
+					<td></td>
+				 </tr>	
+</table>
+
+<table class="base">
+    <tr>
+        <th><b><h4>Admin Login</h4></b></th>
+    </tr>
+    <tr>
+        <td>Admin Address :</td>
+        <td><input type="text" id="adminAddress" size="48" /></td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td><input type="password" id="adminPassword" size="48" /></td>
+    </tr>
+    <tr>
+        <td>
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="unlock()">
+        UnLock Account</button>
+        </td>
+        <td id='adminMessage'></td>
+    </tr>
+</table>
+
+<br>
+
+<div class="row">
+    <div class="column">
+        <table border="0" cellpadding="0" id='registerVoter'> 
+                <tr>
+                    <h4>Register Voter</h4>
+                </tr>
+				<tr>
+					<td>Voter address:</td>
+					<td><input type="text" id="voterAddress" size="48" /></td>
+				</tr>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="registerVoter()">
+                    Register</button></td>
+					<!--<td><button onclick="registerVoter()">Register</button></td>-->
+					<td id='voterRegistrationMessage'></td>
+				 </tr>	
+			</table>
+    </div>
+    <div class="column">
+    <table border="0" cellpadding="0" id='checkRegistration'> 
+                <tr>
+                    <h4>Check Registration</h4>
+                </tr>
+				<tr>
+					<td>Address:</td>
+					<td><input type="text" id="address" size="48" /></td>
+				</tr>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="checkVoterRegistration()">
+  Check Registration
+</button></td>
+					<!--<td><button onclick="checkVoterRegistration()">Check Registration</button></td>-->
+					<td id='registrationVerificationMessage'></td>
+				 </tr>	
+			</table>
+    </div>
+</div>
+
+<br>
+
+<div class="row1">
+    <div class="column1">
+        <table border="0" cellpadding="0" id='proposalsRegistration'> 
+                <tr>
+                    <h4>Candidate Registration</h4>
+                </tr>
+		        <tr>
+				<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="startProposalsRegistration()">
+  Start
+</button></td>
+					<!--<td><button onclick="startProposalsRegistration()">Start</button></td>-->
+					<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="endProposalsRegistration()">
+  End
+</button></td>
+					
+					<!--<td><button onclick="endProposalsRegistration()">End</button></td>-->
+					<td id='proposalsRegistrationMessage'></td>
+				 </tr>	
+			</table>
+    </div>
+    <div class="column1">
+    <table border="0" cellpadding="0" id='votingSession'> 
+                <tr>
+                    <h4>Voting Session</h4>
+                </tr>
+				<tr>
+				<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="startVotingSession()">
+  Start
+</button></td>
+					<!--<td><button onclick="startVotingSession()">Start</button></td>-->
+					
+						<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="endVotingSession()">
+  End
+</button></td>
+					<!--<td><button onclick="endVotingSession()">End</button></td>-->
+					<td id='votingSessionMessage'></td>
+				 </tr>	
+			</table>
+    </div>
+</div>
+
+<br>
+
+<div class="base2">
+<table border="0" cellpadding="0" id='voteTallying'> 
+                <tr>
+                    <h4>Tally Votes</h4>
+                </tr>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="tallyVotes()">
+  Tally Votes
+</button></td>
+					<!--<td><button onclick="tallyVotes()">Tally votes</button></td>-->
+					<td id='votingTallyingMessage'></td>
+				</tr>
+					
+			</table>
+   </div>
+   <div class="base 3">
+   
+    <table border="0" cellpadding="5"  id='resultsTable'></table>
+   <div>
+</body>
+</html>

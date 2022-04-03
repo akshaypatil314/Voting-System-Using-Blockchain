@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="bower_components/web3/dist/web3.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/truffle-contract/dist/truffle-contract.js"></script>		
+	<script src="./simplevoting.js"></script>
+    <script>
+    function unlock(){
+        alert("Account Successfully Unlocked!")
+    }
+    </script>
+    <meta charset="UTF-8">
+    <title>Voting Panel</title>
+ <link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	crossorigin="anonymous">
+ <style>
+ .navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color:white;
+}
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+body {margin:0;
+background-image: url('evoting.jpg');
+background-position:center;
+background-size:cover;
+color:black;
+align:left;}
+
+.base{
+    margin-top: 20px;
+    margin-left:40px;
+    cellpadding:10;
+}
+
+.base1{
+    margin-top: 80px;
+    margin-left:40px;
+    cellpadding:10;
+}
+.base2{
+    margin-top: 0px;
+    margin-left:40px;
+    cellpadding:5;
+}
+
+.base3{
+    margin-top: 0px;
+    margin-left:40px;
+    cellpadding:5;
+}
+.base4{
+    margin-top: 0px;
+    margin-left:40px;
+    cellpadding:5;
+}
+
+.base5{
+    margin-top: 0px;
+    margin-left:40px;
+    cellpadding:5;
+}
+
+.base input[type="text"],input[type="password"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+
+.base2 input[type="text"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+
+.base3 input[type="text"]{
+border:none;
+border-bottom:2px solid black;
+background:transparent;
+color:black;
+}
+
+ </style>
+
+</head>
+<body>
+<div class="navbar">
+	<h2>Voting-Voter Panel</h2>
+</div>
+
+<table border="0" cellpadding="0" id='currentStatus' class="base1"> 
+				<tr>
+					<td><h2><b>Current status:</b></h2></td>
+					<td id='currentWorkflowStatusMessage'></td>
+					<td></td>
+					<td></td>
+				 </tr>	
+</table>
+</br>
+<table border="0" cellpadding="0" size="45" id='proposalsTable' class="base5"> </table>
+
+</br>
+<table class="base">
+    <tr>
+        <td><b><h4>Voter Login</h4></b></td>
+    </tr>
+    <tr>
+        <td>Voter Address :</td>
+        <td><input type="text" id="voterAddress" size="48" /></td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td><input type="password" id="voterPassword" size="48" /></td>
+    </tr>
+    <tr>
+        <td>
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="unlock()" >
+        UnLock Account</button>
+        </td>
+        <td id='voterMessage'></td>
+    </tr>
+</table>
+<br/>	
+
+
+<table border="0" cellpadding="0" id='registerProposal' class="base2"> 
+				<tr>
+                <th><h4>Register Candidate</h4></th>
+                </tr>
+                <tr>
+					<td>Candidate Name:</td>
+					<td><input type="text" id="proposalDescription" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="registerProposal()">
+        Register Candidate</button>
+				</td>
+                <td id='proposalRegistrationMessage'></td>
+				 </tr>	
+</table>
+</br>
+<table border="0" cellpadding="0" id='vote' class="base3"> 
+				<tr>
+                <th><h4>Vote</h4></th>
+                </tr>
+                <tr>
+					<td>Candidate Id:</td>
+					<td><input type="text" id="proposalId" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="vote()">
+        Vote</button>
+				</td>
+				<td id='voteConfirmationMessage'></td>
+				 </tr>	
+</table>
+</br>
+<table border="0" cellpadding="0" width="200" id='resultsTable' class="base4"></table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "ethjs-abi",
+  "description": "Just the Ethereum encoding and decoding methods from the ethers-io-wallet.",
+  "main": "lib/index.js",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ethereum",
+    "encoding",
+    "decoding"
+  ],
+  "homepage": "https://github.com/konsmosc/ethjs-abi",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "54e34c686b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "54e34c686bf2fcf11ff2ec463bd3b58852314f61"
+  },
+  "_source": "https://github.com/konsmosc/ethjs-abi.git",
+  "_target": "*",
+  "_originalSource": "ethjs-abi-konsmosc"
+}

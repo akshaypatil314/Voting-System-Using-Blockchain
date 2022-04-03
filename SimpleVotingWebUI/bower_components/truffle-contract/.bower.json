@@ -1,0 +1,37 @@
+{
+  "name": "truffle-contract",
+  "description": "A better contract abstraction for Ethereum",
+  "main": "index.js",
+  "authors": [
+    "Tim Coulter <tim.coulter@consensys.net>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ethereum",
+    "truffle",
+    "contract",
+    "abstraction"
+  ],
+  "homepage": "https://github.com/trufflesuite/truffle-contract",
+  "dependencies": {
+    "ethjs-abi-konsmosc": "*",
+    "truffle-blockchain-utils": "*",
+    "truffle-contract-schema": "*",
+    "web3": "0.19.0"
+  },
+  "ignore": [
+    "**/.*",
+    "test",
+    "tests"
+  ],
+  "_release": "fb592c2ae8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "fb592c2ae851495150ddfc88a009a5f6f23f415f"
+  },
+  "_source": "https://github.com/konsmosc/truffle-contract.git",
+  "_target": "*",
+  "_originalSource": "truffle-contract-konsmosc",
+  "_direct": true
+}
